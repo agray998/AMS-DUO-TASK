@@ -11,7 +11,7 @@ app = Flask(__name__)
 def home():
     hostname = getenv('HOSTNAME')
     name = getenv('YOUR_NAME')
-    if name == '':
+    if name is None:
       name = "friend"
     return f"<h1>Hello {name}.</h1>\n\n<h2>I'm currently running in ${hostname}.</h2>"
 
