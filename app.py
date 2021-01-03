@@ -10,7 +10,10 @@ app = Flask(__name__)
 @app.route('/')
 def home():
     hostname = getenv('HOSTNAME')
-    return f"<h1>Hello friend.</h1>\n\n<h2>I'm currently running in ${hostname}.</h2>"
+    name = getenv('YOUR_NAME')
+    if name == '':
+      name = "friend"
+    return f"<h1>Hello {name}.</h1>\n\n<h2>I'm currently running in ${hostname}.</h2>"
 
 if __name__=='__main__':
-  app.run(host='0.0.0.0', port=5000, debug=True)
+  app.run(host='0.0.0.0', port=5500, debug=True)
